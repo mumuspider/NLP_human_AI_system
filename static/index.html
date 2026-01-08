@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>人机情感交互平台</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div class="main-container">
+    <div class="header">
+        <h1>人机情感交互平台</h1>
+    </div>
+    <div class="content-container">
+        <div class="video-container">
+            <div class="avatar-placeholder">
+                <img id="avatarImage" src="/static/imgs/avatar/default.png" alt="数字人" class="avatar-image">
+                <div id="avatarLoading" class="avatar-loading">正在加载数字人状态...</div>
+                <div class="avatar-selector">
+                    <span>虚拟形象</span>
+                    <select id="avatarSelect">
+                        <option value="lisa">Lisa</option>
+                        <option value="lori">Lori</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 情绪概率柱状图区域 -->
+            <div class="sentiment-chart-container">
+                <div class="chart-title">情绪分布概率</div>
+                <div id="sentimentChart" class="bar-chart">
+                    <!-- 动态生成柱状图 -->
+                    <div class="bar-item" data-emotion="depressed">
+                        <div class="bar-label">沮丧</div>
+                        <div class="bar-fill-bg"><div class="bar-fill" style="height: 0%;"></div></div>
+                        <div class="bar-value">0%</div>
+                    </div>
+                    <div class="bar-item" data-emotion="friendly">
+                        <div class="bar-label">友好</div>
+                        <div class="bar-fill-bg"><div class="bar-fill" style="height: 0%;"></div></div>
+                        <div class="bar-value">0%</div>
+                    </div>
+                    <div class="bar-item" data-emotion="default">
+                        <div class="bar-label">中性</div>
+                        <div class="bar-fill-bg"><div class="bar-fill" style="height: 0%;"></div></div>
+                        <div class="bar-value">0%</div>
+                    </div>
+                    <div class="bar-item" data-emotion="angry">
+                        <div class="bar-label">愤怒</div>
+                        <div class="bar-fill-bg"><div class="bar-fill" style="height: 0%;"></div></div>
+                        <div class="bar-value">0%</div>
+                    </div>
+                    <div class="bar-item" data-emotion="upbeat">
+                        <div class="bar-label">兴奋</div>
+                        <div class="bar-fill-bg"><div class="bar-fill" style="height: 0%;"></div></div>
+                        <div class="bar-value">0%</div>
+                    </div>
+                    <div class="bar-item" data-emotion="cheerful">
+                        <div class="bar-label">愉悦</div>
+                        <div class="bar-fill-bg"><div class="bar-fill" style="height: 0%;"></div></div>
+                        <div class="bar-value">0%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-container">
+                <div id="responseArea"></div>
+            </div>
+            <div class="camera-container">
+                <video id="cameraVideo" autoplay muted playsinline></video>
+                <div class="camera-status" id="cameraStatus">摄像头未开启</div>
+                <button id="cameraButton" class="secondary-btn" style="margin-top:6px;">开启摄像头</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="userSendArea">
+    <div class="input-container">
+        <input type="text" id="chatInput" placeholder="请输入问题">
+        <button id="voiceButton" class="secondary-btn" style="width:90px;">语音输入</button>
+        <button id="sendButton" style="width:80px;">发送</button>
+    </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
